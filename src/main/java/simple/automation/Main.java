@@ -1,5 +1,7 @@
 package simple.automation;
 
+import org.junit.jupiter.api.Test;
+
 public class Main {
 
     private static final String EXISTED_USER = "existed";
@@ -16,6 +18,11 @@ public class Main {
             return true;
         }
 
+        return false;
+    }
+
+    @Test
+    private  boolean loginAs() {;
         return false;
     }
 
