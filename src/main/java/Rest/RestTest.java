@@ -2,6 +2,7 @@ package Rest;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.response.ResponseBody;
 import org.junit.BeforeClass;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -26,7 +27,6 @@ public class RestTest {
     {
        Response response = given().baseUri("https://reqres.in")
                 .basePath("/api/users?page=2")
-                .contentType(ContentType.JSON)
                 .when().get();
 
        int i = 0;
@@ -38,12 +38,19 @@ public class RestTest {
         pars  = new Pars();
         pars.startPas();
 
+        String ttt = pars.readFile("test.json");
+
         Response response = given().baseUri("https://reqres.in")
                 .basePath("/api/users?page=2")
                 .contentType(ContentType.JSON)
-                .body(pars.searchFile("test.json"))
+                .header("Content-Type", "text/plain")
+                .body(ttt)
                 .when().post();
 
+
+        System.out.println("Ух");
+        System.out.println(response.body().print());
+        int i = 0;
     }
 
     @Test

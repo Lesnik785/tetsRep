@@ -1,6 +1,7 @@
 package Rest;
 
 import com.google.gson.Gson;
+import io.restassured.response.Response;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -61,5 +62,10 @@ public class Pars {
         JsonData json = gson.fromJson(readFile(nameFile), JsonData.class);
 
         return json;
+    }
+
+    public String readJson(Response response){
+
+        return response.body().print();
     }
 }
