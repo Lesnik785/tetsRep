@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Product",
+  "description": "A product from the catalog",
+  "type": "object",
+  "properties": {
+    "createdAt": {
+      "description": "test",
+      "type": "string"
+    }
+  },
+  "required": ["id","createdAt"]
+}

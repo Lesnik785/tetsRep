@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Product",
+  "description": "A product from the catalog",
+  "type": "object",
+  "properties": {
+    "page": {
+      "description": "test",
+      "type": "integer"
+    },
+    "per_page": {
+      "description": "test",
+      "type": "integer"
+    },
+    "total": {
+      "description": "test",
+      "type": "integer"
+    },
+    "total_pages": {
+      "description": "test",
+      "type": "integer"
+    },
+    "data": {
+        "type": "array",
+        "items":
+          {
+            "type": "object",
+            "properties": {
+              "last_name": {
+                "type": "string"
+              },
+              "id": {
+                "type": "integer"
+              }
+            },
+            "required": ["last_name","id"]
+          }
+      }
+
+  },
+  "required": ["page","per_page","total","total_pages"]
+}

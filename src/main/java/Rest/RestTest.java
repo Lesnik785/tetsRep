@@ -23,43 +23,41 @@ public class RestTest {
 
 
     @Test
-    public  void  getUser()
-    {
-       Response response = given().baseUri("https://reqres.in")
-                .basePath("/api/users?page=2")
-                .when().get();
-
-       int i = 0;
-    }
-
-    @Test
-    public  void  post()
+    public  void   getUser()
     {
         pars  = new Pars();
         pars.startPas();
 
-        String ttt = pars.readFile("test.json");
+       Response response = given().baseUri("https://reqres.in")
+                .basePath("/api/users?page=2")
+                .when().get();
+
+        pars.verifyJson("jsScem11.json", response);
+
+        //return response;
+    }
+
+    @Test
+    public void post()
+    {
+        pars  = new Pars();
+        pars.startPas();
 
         Response response = given().baseUri("https://reqres.in")
                 .basePath("/api/users?page=2")
                 .contentType(ContentType.JSON)
                 .header("Content-Type", "text/plain")
-                .body(ttt)
+                .body(pars.searchFile("test1.json"))
                 .when().post();
 
-
-        System.out.println("Ух");
-        System.out.println(response.body().print());
-        int i = 0;
+        pars.verifyJson("jsScem.json", response);
     }
 
     @Test
     public  void  ttt()
     {
         pars  = new Pars();
-        pars.startPas();
-        pars.serializationFile("test.json");
-   //     pars.readFile("test.json");
-        int i =0;
+        //pars.startPas();
+
     }
 }
